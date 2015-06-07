@@ -1,0 +1,24 @@
+<h1> <%= @band.name %> </h1>
+<% if current_user.admin? %>
+  <%= my_button_to(edit_band_url(@band), "Change this band", 'get') %>
+  <%= my_button_to(band_url(@band),"Destroy From Orbit",'delete')  %>
+<% end %>
+
+<h3>has made the following albums</h3>
+<% if current_user.admin? %>
+  <form action="<%=new_album_url%>" method="get">
+    <input type="hidden" name="album[band_id]" value="<%= @band.id %>">
+    <button> Add another album </button>
+  </form>
+<% end %>
+
+
+<ul>
+  <% @band.albums.each do |album| %>
+    <li> <%= my_link_to(album_url(album),album.name) %> </li>
+  <% end %>
+</ul>
+
+
+<br>
+<%= my_link_to(bands_url,"Return to the bands index") %>

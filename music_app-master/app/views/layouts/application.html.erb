@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MusicApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <h1>Welcome to the Music App</h1>
+  <% if logged_in? %>
+    <%= my_button_to(session_url,"Log out", 'delete') %>
+  <% else %>
+    <%= my_button_to(new_user_url, "Sign Up", 'get') %>
+    <br>
+    <%= my_button_to(new_session_url, "Log in", 'get') %>
+  <% end %>
+ <ul>
+    <% flash.each do |key, message| %>
+      <li> <%=key %>: <%= message %> </li>
+    <% end %>
+ </ul>
+ <br>
+
+<br>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<h1> <%= @album.name %></h1>
+<h2> by <%= @album.band.name %> </h2>
+<h3> was performed <%= @album.live_or_studio %> </h3>
+<% if current_user.admin? %>
+<%= my_button_to(album_url(@album), "KILL IT WITH FIRE", 'delete')  %>
+<%= my_link_to(edit_album_url(@album), "CHANGE IS GOOD") %>
+<% end %>
+<h4> inludes the following tracks </h4>
+
+<% if current_user.admin? %>
+<form action="<%= new_track_url %>" method="get">
+  <input type="hidden" name="track[album_id]" value="<%= @album.id %>">
+  <button> Add another track to this album </button>
+</form>
+
+<% end %>
+<ul>
+  <% @album.tracks.each do |track| %>
+    <li> <%= my_link_to(track_url(track), track.name ) %> </li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= my_link_to(band_url(@band), "Back to #{@band.name}") %>

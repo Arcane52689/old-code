@@ -1,0 +1,39 @@
+
+<%= display_object_errors(album) %>
+<form
+  action="<%= album.persisted? ? album_url(album) : albums_url %>" method="post">
+  <%= secret_patch if album.persisted? %>
+  <%= authentic_form %>
+
+  <label for="album_name">Album Name</label>
+  <input type="text" name="album[name]" value="<%= album.name %>">
+  <br>
+  <label for="album_band">Please select the band for this album</label>
+  <select name="album[band_id]">
+    <% Band.all.each do |band| %>
+      <option value="<%=band.id %>" <%= "selected" if band.id == album.band_id%> >
+         <%= band.name %>
+      </option>
+    <% end %>
+  </select>
+  <br>
+
+  <input type="radio"
+    name="album[live]"
+    value="true"
+    id="album_live"
+    <%= "checked" if album.live %>
+    >
+  <label for="album_live">Live</label>
+
+  <input type="radio"
+    name="album[live]"
+    value="false"
+    id="album_studio"
+    <%= "checked" unless album.live %>
+    >
+  <label for="album_live">Studio</label>
+  <br>
+  <button> Create this Album <button>
+
+</form>

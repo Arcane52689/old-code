@@ -1,0 +1,5 @@
+<pre>
+  <%= note.body %>
+</pre>
+<strong>by <%=  note.user.email%> </strong>
+<%= my_button_to(note_url(note) ,"DESTROY", "delete") if note.user_id == current_user.id || current_user.admin? %>

@@ -1,0 +1,14 @@
+<form class="post-form">
+  <% if (errors) {%>
+    <label> Errors </label>
+    <p> <%= errors + "" %> </p>
+  <% } %>
+
+  <label for="">Title</label>
+  <input class='form' type="text" name="post[title]" value="<%= post.escape("title")%>">
+  <br>
+  <label for="">Body</label>
+  <textarea class='form' name="post[body]" rows="8" cols="40"><%= post.escape("body")%></textarea>
+  <br>
+  <input type="submit" value="Create Post">
+</form>

@@ -1,0 +1,29 @@
+<h1> <%= @post.title %>  </h1>
+<%= my_link_to(@post.url, @post.url) unless @post.url.nil? %>
+
+<pre>
+  <%= @post.content %>
+</pre>
+
+<h3>Subs:</h3>
+<ul>
+  <% @subs.each do |sub| %>
+    <li><%= my_link_to(sub_url(sub), sub.title) %></li>
+  <% end %>
+</ul>
+<br>
+
+<h3>Comments:</h3>
+
+<%= my_button_to(new_post_comment_url(@post), "Add a comment", "GET") %>
+<br>
+<ul>
+  <% @all_comments[:parent_comment].each do |comment| %>
+    <li><%= render partial:"comments/comment",
+      locals: {
+          comment: comment,
+          all_comments: @all_comments
+          } %>
+    </li>
+  <% end %>
+</ul>

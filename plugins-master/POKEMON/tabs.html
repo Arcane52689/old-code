@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gotta Catch'em All</title>
+    <script src="./jquery-2.1.1.js"></script>
+    <script src="./tabs.js"></script>
+    <link href="./tabs.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+
+    <h1>Thumbnails</h1>
+
+    <section class="thumbnails">
+
+      <figure class="active-picture"></figure>
+
+      <nav class="gutter-images group">
+      </nav>
+
+    </section>
+
+
+    <script>
+      $(function() {
+        $('.thumbnails').thumbnails();
+      })
+    </script>
+
+  </body>
+</html>

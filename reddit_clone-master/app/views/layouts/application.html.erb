@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RedditClone</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <p>
+    Current user: <%= current_user.email unless current_user.nil? %>
+  </p>
+  <%= my_button_to(session_url, "Logout", "delete") %>
+  <%= my_button_to(session_url, "Log In", "get") %>
+<%= yield %>
+
+</body>
+</html>

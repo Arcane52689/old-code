@@ -1,0 +1,31 @@
+
+<p> Requested by <%= request.user.user_name %> <br>
+
+  From <%=request.start_date %> to <%= request.end_date %><br>
+
+  current_status: <%= request.status %>
+
+  <% if current_user.id == request.cat.user_id%>
+    <form action="<%= approve_cat_rental_request_url(request) %>"
+      method="post">
+      <%= authentic_form %>
+      <input name="_method" type="hidden" value="PATCH">
+      <input type="submit" value="Approve">
+    </form>
+
+    <form action="<%= deny_cat_rental_request_url(request) %>"
+      method="post">
+      <%= authentic_form %>
+      <input name="_method" type="hidden" value="PATCH">
+      <input type="submit" value="Deny">
+      <br>
+    </form>
+    
+  <% elsif current_user.id == request.user_id %>
+    <form action="<%= cat_rental_request_url(request) %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <%= authentic_form %>
+      <button>I don't actually want this cat. I am fickle.</button>
+    </form>
+  <% end %>
+</p>

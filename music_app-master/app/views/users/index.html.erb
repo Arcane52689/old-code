@@ -1,0 +1,12 @@
+
+
+<h1>ALL USERS</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <li> <%= user.email %>
+      <%= my_button_to(make_admin_user_url(user),
+        "MAKE ADMIN",
+        "PUT") unless user.admin?%> </li>
+  <% end %>
+</ul>

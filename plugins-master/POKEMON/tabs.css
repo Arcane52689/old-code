@@ -1,0 +1,59 @@
+html, body, figure, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  background: transparent;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.thumbnails {
+  width: 410px;
+  margin: auto;
+}
+
+.thumbnails img:hover {
+  border: 5px solid black;
+
+}
+
+.active-picture {
+  background: yellow;
+  width: 300px;
+  height: 300px;
+  border: 5px solid black;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.gutter {
+
+}
+
+.gutter-images {
+  background: red;
+  height: 90px;
+}
+
+.gutter-images img {
+  float: left;
+  width: 80px;
+}

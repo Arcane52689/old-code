@@ -1,0 +1,168 @@
+/*
+
+ *= require_self
+ *= require_tree .
+ */
+
+body, ul, li, button, a, h1, form, div {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+
+  font: inherit;
+  color: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+body {
+  background: #bed;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-left: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.feeds-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.group:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.entries {
+  width: 405px;
+  float: left;
+}
+
+li {
+  position: relative;
+  width: 400px;
+  min-height: 30px;
+  background: #eee;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+li:first-child{
+  border-top: 1px solid black;
+}
+
+li:hover {
+  background: #aaa;
+}
+
+.feeds li button {
+  float: right;
+}
+
+.feeds li a {
+  display: block;
+  float: left;
+  width: 298px;
+  height: 100%;
+}
+
+
+.delete-feed {
+  cursor: pointer;
+  padding: 5px;
+  background: #abc;
+  color: black;
+  height: 100%;
+  border-left: 1px solid black;
+  width: 90px;
+}
+
+.delete-feed:hover {
+  background: #def;
+}
+
+#content {
+  margin-left: 50px;
+}
+
+.new-feed-form {
+  border: 1px solid black;
+  background: #aaa;
+  width: 380px;
+  padding: 10px;
+}
+
+.new-feed-form input{
+  width: 335px;
+}
+.new-feed-form label{
+  font-weight: bold;
+}
+
+.new-feed-form button {
+  border: 1px solid black;
+  border-radius: 5px;
+  background: #def;
+  padding: 5px;
+  width: 100px;
+  float: right;
+  cursor: pointer;
+}
+
+.refresh {
+  border: 1px solid black;
+  border-radius: 5px;
+  background: #def;
+  padding: 5px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.back-to-index {
+  border: 1px solid black;
+  border-radius: 5px;
+  background: #def;
+  padding: 5px;
+  width: 100px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.other-content {
+  float:left;
+  width: 800px;
+  height: 1000px;
+  padding: 20px;
+}
+
+.other-content object {
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+}

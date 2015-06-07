@@ -1,0 +1,4 @@
+<h1 class="title"> <%= post.escape("title") %> </h1>
+<input class="hidden title" type="text" name="post[title]" value="<%= post.escape("title")%>">
+<p> <%= post.escape("body") %> </p>
+<textarea class="hidden"><%= post.escape("body")%></textarea>

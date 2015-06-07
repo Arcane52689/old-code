@@ -1,0 +1,11 @@
+
+<form action="<%= session_url %>" method="post">
+  <%= authentic_form %>
+  <label for="user_email"> Your Email</label>
+  <input type="text" name="user[email]" id="user_email" >
+  <br>
+  <label for="user_password">Your Password</label>
+  <input type="password" name="user[password]" id="user_password">
+  <br>
+  <button> Log in </button>
+</form>

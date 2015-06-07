@@ -1,0 +1,27 @@
+<h1> <%= @track.name %></h1>
+<h2>by  <%= @band.name %> </h2>
+<h3> on <%= @album.name %> as a <%= @track.track_type %> </h3>
+<% if current_user.admin? %>
+  <%= my_button_to(track_url(@track),"EXTERMINATE", 'delete')  %>
+  <%= my_button_to(edit_track_url(@track),"Change is good", 'get') %>
+<% end %>
+
+<h4>LYRICS</h4>
+
+<p>
+  <%= ugly_lyrics(@track.lyrics) %>
+</p>
+<br>
+
+<%= my_link_to(album_url(@album),"Back to #{@album.name}") %>
+
+<h5>New Note</h5>
+<%= render 'notes/form',  track:@track %>
+
+<h5>Notes for this track</h5>
+
+<ul>
+  <% @track.notes.includes(:user).each do |note| %>
+    <li>  <%= render note %> </li>
+  <% end %>
+</ul>

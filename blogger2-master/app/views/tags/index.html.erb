@@ -1,0 +1,7 @@
+<h1> List of All Tags </h1>
+
+<ul>
+  <% @tags.each do |tag| %>
+    <li> <%= link_to "#{tag.name} (#{tag.articles.size} articles)" %> </li>
+  <% end %>
+</ul>

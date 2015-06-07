@@ -1,0 +1,34 @@
+<form
+  action=" <%= post.persisted? ? post_url(post) : posts_url %> "
+  method="post">
+  <%= authentic_form %>
+  <%= object_errors(post) if post.errors.any? %>
+  <%= secret_method("PATCH") if post.persisted? %>
+  <label for="post_title">Title:</label>
+  <input type="text" name="post[title]" value="<%= post.title %>">
+  <br>
+
+  <label for="post_url"> URL: </label>
+  <input type="text" name="post[url]" value="<%= post.url %>">
+  <br>
+
+  <label for="post_content">Content: </label>
+  <textarea name="post[content]" rows="8" cols="40"><%= post.content %> </textarea>
+  <br>
+
+  <% Sub.all.each do |sub| %>
+    <input
+      type="checkbox"
+      name="post[sub_ids][]"
+      id="sub_<%= sub.id %>"
+      value="<%= sub.id %>"
+      <%= "checked" if post.sub_ids.include?(sub.id) %>>
+    <label for="sub_<%= sub.id %>"><%= sub.title %></label>
+    <br>
+  <% end %>
+  <br>
+
+  <input type="submit"
+    value=" <%= submit_option(post) %> ">
+
+</form>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Cool Website</title>
+    <script src="./jquery-2.1.1.js"></script>
+    <script src="./tabs.js"></script>
+    <link href="./tabs.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+
+    <ul class="tabs group" data-content-tabs="content-tabs">
+      <li> <a class="active-link" href="#husky">Husky</a> </li>
+      <li> <a href="#terrier">Terrier</a> </li>
+      <li> <a href="#English-Bulldog">English-Bulldog</a> </li>
+      <li> <a href="#Australian-Shepherd">Australian-Shepherd</a> </li>
+
+    </ul>
+
+    <figure class="content" id="content-tabs">
+      <section class="tab-pane active-pane" id="husky">
+        <p>Some stuff about Huskies</p>
+      </section>
+      <section class="tab-pane" id="terrier">
+        <p>Some stuff about Terriers</p>
+      </section>
+      <section class="tab-pane" id="English-Bulldog">
+        <p>Some stuff about English Bulldogs</p>
+      </section>
+      <section class="tab-pane" id="Australian-Shepherd">
+        <p>Some stuff about Australian-Shepherds</p>
+      </section>
+    </figure>
+
+
+    <script>
+      $(function() {
+        $('.tabs').tabs();
+      })
+    </script>
+
+
+  </body>
+</html>

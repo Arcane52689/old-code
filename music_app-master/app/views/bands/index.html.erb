@@ -1,0 +1,9 @@
+<h1>ALL THE GOD DAMNED BANDS!!!!!!!</h1>
+
+<ul>
+  <% @bands.each do |band| %>
+    <li> <%= my_link_to(band_url(band), band.name) %> </li>
+  <% end %>
+</ul>
+
+<%= my_link_to(new_band_url,"Make a new damned band")  if current_user.admin? %>

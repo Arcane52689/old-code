@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cats</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% if current_user %>
+    <h3>Hello, <%= current_user.user_name %> </h3>
+
+    <form action="<%= session_url %>" method="post">
+      <%= authentic_form %>
+      <input type="hidden" name="_method" value="delete">
+      <button>Log Out! I don't like cats anymore.</button>
+    </form>
+
+  <% else %>
+
+  <form action="<%= new_session_url %>" method="get">
+    <button>Log in!</button>
+  </form>
+
+  <form action="<%= new_user_url %>" method="get">
+    <button>Sign up!</button>
+  </form>
+
+  <% end %>
+<% if flash.any? %>
+
+<ul>
+  <% flash.each do |key, messages| %>
+    <li> <%= key %>: <%= messages.to_s  %></li>
+  <% end %>
+</ul>
+
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

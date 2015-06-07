@@ -1,0 +1,14 @@
+<h1>Sign In</h1>
+
+<form action="<%=session_url %>" method="POST">
+  <%= authentic_form %>
+  <label for="user_email">Email:</label>
+  <input type="text" name="user[email]">
+  <br>
+
+  <label for="user_password">Password:</label>
+  <input type="password" name="user[password]">
+  <br>
+
+  <input type="submit" name="Sign up!">
+</form>

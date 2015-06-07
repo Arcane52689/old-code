@@ -1,0 +1,79 @@
+html, body, figure, ul, li, section, a{
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  background: transparent;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  font: sans-serif;
+  font-size: 16px;
+}
+
+.tabs {
+  margin: auto;
+  width: 440px;
+  background: #ccc;
+  padding: 20px;
+}
+
+.tabs > li {
+  display: block;
+  float: left;
+  border: 1px solid black;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.tabs > li:hover {
+  background: orange;
+}
+
+.tabs > li > a {
+  display: block;
+  padding: 10px;
+}
+
+.tab-pane {
+  display: none;
+  transition: opacity 500ms;
+}
+
+
+.active-link {
+  color: red;
+  background: yellow;
+}
+
+.active-pane {
+  display: block;
+}
+
+.content {
+  background: purple;
+  color: white;
+  padding: 20px;
+  height: 300px;
+  width: 440px;
+  margin: auto;
+}
+
+.transitioning {
+  display: block;
+  opacity: 0;
+}

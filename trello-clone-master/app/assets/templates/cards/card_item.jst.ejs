@@ -1,0 +1,13 @@
+<article class="card" >
+  <h3 class="card-title"> <%= card.escape('title') %> </h3>
+  <input class="card-title input inactive" type="text" id="card-title" value="<%= card.escape("title") %>">
+  <button class="delete">Delete</button>
+
+  <section class="card-description">
+    <p>
+      <%= card.escape("description")%>
+    </p>
+  </section>
+  <textarea class="card-description textarea inactive"><%= card.escape("description")%></textarea>
+
+</article>

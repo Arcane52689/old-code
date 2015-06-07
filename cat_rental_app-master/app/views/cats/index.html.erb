@@ -1,0 +1,32 @@
+<h1> All the cats! </h1>
+
+<%= request.env["HTTP_USER_AGENT"] %>
+
+<table border=2, bgcolor="pink" >
+  <th>
+    Name
+  </th>
+  <th>
+    Age
+  </th>
+  <th>
+    Color
+  </th>
+
+  <% @cats.each do |cat| %>
+    <tr>
+      <td>
+        <a href="<%= cat_url(cat) %>"> <%= cat.name %> </a>
+      </td>
+      <td>
+        <%= cat.age %>
+      </td>
+      <td>
+        <%= cat.color %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+
+<!-- <img src="http://thecatapi.com/api/images/get?format=src&type=gif"/> -->

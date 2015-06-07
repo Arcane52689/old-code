@@ -1,0 +1,12 @@
+<%= display_object_errors(band) %>
+<form
+  action="<%= band.persisted? ? band_url(band) : bands_url %>"
+   method="post">
+
+  <%= secret_patch if band.persisted? %>
+
+  <%= authentic_form %>
+  <label for="band_name">Band name</label>
+  <input type="text" name="band[name]" value="<%= @band.name %>">
+  <button> Create the BAND!!!! </button>
+</form>

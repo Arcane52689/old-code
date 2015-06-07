@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome!</title>
+  </head>
+  <body>
+    <<h1> Welcome to the music_app</h1>
+    <p>
+      YOu have successfully signed up.
+      please click the following link
+      <a href="<%= "localhost:3000/users/activate?activation_token=#{@user.activation_token}&user_id=#{@user.id}" %>"><%= "users/activate?actiavation_token=#{@user.activation_token};user_id=#{@user.id}" %></a>
+    </p>
+  </body>
+</html>

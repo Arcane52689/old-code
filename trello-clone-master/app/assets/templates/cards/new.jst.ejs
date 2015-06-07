@@ -1,0 +1,11 @@
+<form>
+  <label for="">Title</label>
+  <br>
+  <input type="text" name="card[title]" value="<%=card.escape("title")%>">
+  <br>
+  <label for="">Description</label>
+  <textarea name="card[description]" rows="8" cols="40"><%= card.escape("description")%></textarea>
+  <br>
+  <input type="submit" name="name" value="Create Card!">
+  <button class="cancel"> Cancel </button>
+</form>

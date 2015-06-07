@@ -1,0 +1,55 @@
+
+
+<form
+  action="<%=cat.persisted? ? cat_url(cat) : cats_url %>"
+  method="post">
+
+  <% if cat.persisted? %>
+    <input name="_method" type="hidden" value="PATCH">
+  <% end %>
+
+  <%= authentic_form %>
+
+  <label for="cat_name">Name</label>
+  <input name="cat[name]" id="cat_name" type="text" value="<%= cat.name %>">
+  <br>
+
+  <label for="cat_birth_date">Birth Date</label>
+  <input name="cat[birth_date]" id="cat_birth_date" type="date" value="<%= cat.birth_date %>">
+  <br>
+
+  <label for="cat_sex">Sex</label>
+  <% Cat.sexes.each do |sex| %>
+
+    <input name="cat[sex]"
+    id="cat_sex_<%= sex %>"
+    type="radio" value="<%= sex %>"
+      <%='checked="checked"' if cat.sex == sex %> >
+    <label for="cat_sex_<%=sex%>"> <%= sex.capitalize %></label>
+
+  <% end %>
+  <br>
+
+  <label for="cat_color">Color</label>
+  <select name="cat[color]">
+
+    <% Cat.colors.each do |color| %>
+      <option <%= 'selected="selected"' if cat.color == color %> >
+        <%= color %>
+      </option>
+    <% end %>
+
+  </select>
+  <br>
+
+  <label for="cat_description">Describe the cat</label>
+  <input
+    type="text"
+    name="cat[description]"
+    value="<%= cat.description %>">
+  <br>
+
+  <input
+    type="submit"
+    value="<%= cat.persisted? ? 'Edit my cat!' : 'BUILD MY CAT DAMN IT!'  %>">
+</form>

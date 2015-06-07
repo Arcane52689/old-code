@@ -1,0 +1,28 @@
+<h4><%= @comment.content %></h4>
+
+<form
+  action="<%= comments_url %>"
+  method="post">
+  <%= authentic_form %>
+  <input type="submit" value="Reply">
+  <br>
+  <input
+    type="hidden"
+    name="comment[post_id]"
+    value="<%= @comment.post_id %>">
+  <input
+    type="hidden"
+    name="comment[parent_comment_id]"
+    value="<%= @comment.id %>">
+  <textarea name="comment[content]" rows="8" cols="40"></textarea>
+</form>
+
+<ul>
+  <% @children.each do |comment| %>
+    <li><pre>
+      <%= comment.content %>
+    </pre>  </li>
+  <% end %>
+</ul>
+
+<%= my_link_to(post_url(@comment.post_id), "Back to the post") %>

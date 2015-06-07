@@ -1,0 +1,10 @@
+<h3><%= my_link_to(comment_url(comment),
+comment.content[0..20] + "...") %>
+by
+<%= comment.author.email %>
+</h3>
+<ul>
+  <% all_comments[comment.id].each do |child| %>
+    <li> <%= render partial: 'comments/comment', locals: { comment: child, all_comments: all_comments } %> </li>
+  <% end %>
+</ul>

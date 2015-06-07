@@ -1,0 +1,34 @@
+<h1> <%= @cat.name %> </h1>
+
+<ul>
+  <% [:birth_date,:age,:color,:description, :sex].each do |attr| %>
+    <li> <%= attr.to_s.capitalize %>: <%= @cat.send(attr) %> </li>
+  <% end %>
+</ul>
+<a href="http://thecatapi.com"><img
+  src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>
+  
+<% if @cat.owner.id != current_user.id %>
+
+  <form action="<%= new_cat_rental_request_url %>" method="get">
+    <input type="hidden"
+    name="cat_rental_request[cat_id]"
+    value="<%= @cat.id %>">
+    <button>Rent this cat! :3</button>
+  </form>
+
+<% else %>
+  <form action="<%= cat_url(@cat) %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <%= authentic_form %>
+    <button>KILL YOUR POOR INNOCENT CAT. IT'S SO HELPLESS. HOW CAN YOU RESIST??</button>
+  </form>
+<% end %>
+
+<h2>Existing Requests</h2>
+
+<ul>
+  <% @cat.cat_rental_requests.order(:start_date).each do |request| %>
+    <%= render partial: "shared/request", locals: {request: request} %>
+  <% end %>
+</ul>

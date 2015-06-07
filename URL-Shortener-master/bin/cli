@@ -1,0 +1,65 @@
+
+
+class CLI
+  attr_accessor :user, :short_url
+
+  def set_user
+    self.user = User.fetch(email: get_email)
+  end
+
+  def run
+    set_user
+    interface
+  end
+
+
+  def interface
+
+    choice = get_choice
+    if choice == '1'
+      ShortenedUrl.find_by(short_url: get_url).visit_url(user)
+    elsif choice == '0'
+      create_shortened_url
+      puts self.short_url.short_url
+
+      tag_url if tag?
+    else
+      puts "not a valid choice"
+      interface
+    end
+  end
+
+  def tag?
+    puts "Would you like to add a tag? Y/N"
+    gets.chomp.upcase == "Y"
+  end
+
+  def tag_url
+    self.short_url.tag_as(gets.chomp)
+  end
+
+  def get_email
+    puts "Please input your email"
+    gets.chomp
+  end
+
+  def get_choice
+    puts "What would you like to do?"
+    puts "0 to create a shortened URL"
+    puts "1 to visit a shortened URL"
+    gets.chomp
+  end
+
+  def get_url
+    puts "Please type in a URL"
+    gets.chomp
+  end
+
+  def create_shortened_url
+    self.short_url = ShortenedUrl.create_for_user_and_long_url!(user, get_url)
+  end
+
+end
+
+
+CLI.new.run

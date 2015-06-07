@@ -1,0 +1,34 @@
+<table>
+  <th>
+    Device
+  </th>
+  <th>
+    IP
+  </th>
+  <th>
+    Location
+  </th>
+  <th>
+    Logout?
+  </th>
+  <% @sessions.each do |session| %>
+    <tr>
+      <td>
+        <%= session.device %>
+      </td>
+      <td>
+        <%= session.ip %>
+      </td>
+      <td>
+        <%#= session.loation  %>
+      </td>
+      <td>
+        <form action="<%=destroy_specific_session_url(session)  %>" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <%= authentic_form %>
+          <button> DELETE </button>
+        </form>
+      </td>
+    <% end %>
+
+    </tr>
